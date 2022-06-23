@@ -9,5 +9,5 @@ package Model;
  * @author ADMIN
  */
 public class User {
-    
+    private String ID, name, phone, sex, email, address;
 }
