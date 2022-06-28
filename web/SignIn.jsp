@@ -62,20 +62,17 @@
                                 </div>
                                 <form action="SignInController" method="post">
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                     <label for="floatingInput">Email address</label>
                                 </div>
                                 <div class="form-floating mb-4">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
                                     <label for="floatingPassword">Password</label>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                    </div>
                                     <a href="ForgotPass.jsp">Forgot Password</a>
                                 </div>
+                                    <p>${mess}</p>
                                 <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                                 <p class="text-center mb-0">Don't have an Account? <a href="SignUp.jsp">Sign Up</a></p>
                                 </form>

@@ -9,8 +9,8 @@
         <servlet-class>Controller.SignInController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ForgotPass</servlet-name>
-        <servlet-class>Controller.ForgotPass</servlet-class>
+        <servlet-name>ForgotPassController</servlet-name>
+        <servlet-class>Controller.ForgotPassController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUpController</servlet-name>
@@ -21,8 +21,8 @@
         <url-pattern>/SignInController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ForgotPass</servlet-name>
-        <url-pattern>/ForgotPass</url-pattern>
+        <servlet-name>ForgotPassController</servlet-name>
+        <url-pattern>/ForgotPassController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

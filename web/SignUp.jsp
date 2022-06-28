@@ -63,24 +63,25 @@
                         </div>
                         <form action="SignUpController" method="post">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="jhondoe">
+                            <input type="text" class="form-control" id="floatingText" placeholder="Username" name="username">
                             <label for="floatingText">Username</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                             <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
                             <label for="floatingPassword">Password</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="pm">
+                                <label class="form-check-label" for="exampleCheck1">Project Manager</label>
                             </div>
                             <a href="ForgotPass.jsp">Forgot Password</a>
                         </div>
+                            <p>${mess}</p>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
                         <p class="text-center mb-0">Already have an Account? <a href="SignIn.jsp">Sign In</a></p>
                         </form>

@@ -5,6 +5,7 @@
 
 package Controller;
 
+import Model.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -29,16 +30,18 @@ public class SignInController extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SignInController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SignInController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String mess;
+            UserDAO u = new UserDAO();
+            String email = request.getParameter("email");
+            String pass = request.getParameter("pass");
+            if (u.login(email, pass)){
+                mess = "Login successful";
+            }else{
+                mess = "Password wrong";
+            }
+            //mess = u.login(email, pass);
+            request.setAttribute("mess", mess);
+            request.getRequestDispatcher("SignIn.jsp").forward(request, response);
         }
     } 
 

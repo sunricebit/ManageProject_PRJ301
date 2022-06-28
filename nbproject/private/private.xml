@@ -5,11 +5,7 @@
         <group>
             <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Controller/SignUpController.java</file>
             <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/SignIn.jsp</file>
-            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/ForgotPass.jsp</file>
             <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Model/UserDAO.java</file>
-            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/ResetPass.jsp</file>
-            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Model/User.java</file>
-            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/index.html</file>
             <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Controller/SignInController.java</file>
             <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/SignUp.jsp</file>
         </group>
