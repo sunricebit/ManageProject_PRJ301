@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Controller/SignUpController.java</file>
+            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/Profile.jsp</file>
+            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/ForgotPass.jsp</file>
             <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/SignIn.jsp</file>
-            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Model/UserDAO.java</file>
-            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Controller/SignInController.java</file>
+            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/home.jsp</file>
+            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Controller/HomeController.java</file>
+            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Controller/SignOutController.java</file>
+            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/ResetPass.jsp</file>
+            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/src/java/Controller/ForgotPassController.java</file>
             <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/SignUp.jsp</file>
+            <file>file:/D:/CODE/Java/ProjectManager_PRJ301/web/main.html</file>
         </group>
     </open-files>
 </project-private>

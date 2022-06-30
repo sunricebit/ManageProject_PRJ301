@@ -55,12 +55,12 @@
                         <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                             <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                                 <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <a href="index.html" class="">
+                                    <a href="Home" class="">
                                         <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Home Page</h3>
                                     </a>
                                     <h3>Sign In</h3>
                                 </div>
-                                <form action="SignInController" method="post">
+                                <form action="SignIn" method="post">
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                     <label for="floatingInput">Email address</label>
@@ -72,7 +72,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <a href="ForgotPass.jsp">Forgot Password</a>
                                 </div>
-                                    <p>${mess}</p>
+                                    <p style='text-align: center'>${mess}</p>
                                 <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                                 <p class="text-center mb-0">Don't have an Account? <a href="SignUp.jsp">Sign Up</a></p>
                                 </form>

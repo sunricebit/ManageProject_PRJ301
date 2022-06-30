@@ -31,17 +31,17 @@ public class SignUpController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /*boolean pm;
+            int pm;
             if (request.getParameter("pm") != null) {
-                pm = true;
+                pm = 1;
             } else {
-                pm = false;
-            }*/
+                pm = 0;
+            }
             String username = request.getParameter("username");
             String email = request.getParameter("email");
             String pass = request.getParameter("pass");
             UserDAO u = new UserDAO();
-            String mess = u.createAccount(username, email, pass/*, pm*/);
+            String mess = u.createAccount(username, email, pass, pm);
             request.setAttribute("mess", mess);
             request.getRequestDispatcher("SignUp.jsp").forward(request, response);
         }

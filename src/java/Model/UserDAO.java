@@ -36,7 +36,7 @@ public class UserDAO {
 
     public boolean login(String email, String pass){
         try {
-            String sql = "select * from department where email = ?";
+            String sql = "select * from tblUser where email = ?";
             stmt = cnt.prepareStatement(sql);
             stmt.setString(1, email);
             rs = stmt.executeQuery();
@@ -67,19 +67,20 @@ public class UserDAO {
         return "invalid";
     }*/
 
-    public String createAccount(String username, String email, String pass/*, boolean pm*/) {
+    public String createAccount(String username, String email, String pass, int pm) {
         String mess = "";
         if (username.matches("^[0-9a-zA-Z]+$") == false) {
             mess = "Username using only letters and numbers";
             return mess;
         }
         try {
-            String sql = "insert into department values (?, ?, ?)";
+            String sql = "insert into tblUser values (?, ?, ?, ?)";
             stmt = cnt.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.setString(2, email);
             String hash = BCrypt.hashpw(pass, BCrypt.gensalt(11));
             stmt.setString(3, hash);
+            stmt.setInt(4, pm);
             stmt.execute();
             mess = "Create new account successful";
             return mess;
@@ -88,5 +89,19 @@ public class UserDAO {
         }
         return mess = "Create account failed!";
     }
-
+    public User checkAccount(String email){
+        try {
+            String sql = "select * from tblUser where email = ?";
+            stmt = cnt.prepareStatement(sql);
+            stmt.setString(1, email);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                User u = new User(rs.getString(1),rs.getString(2));
+                return u;
+            }
+        } catch (Exception e) {
+            System.out.println("Log in failed. Error: " + e.getMessage());
+        }
+        return null;
+    }
 }

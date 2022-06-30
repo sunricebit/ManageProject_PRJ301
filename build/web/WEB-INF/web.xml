@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        <welcome-file>main.html</welcome-file>
+    </welcome-file-list>
     <servlet>
         <servlet-name>SignUpController</servlet-name>
         <servlet-class>Controller.SignUpController</servlet-class>
@@ -12,17 +15,33 @@
         <servlet-name>ForgotPassController</servlet-name>
         <servlet-class>Controller.ForgotPassController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignOutController</servlet-name>
+        <servlet-class>Controller.SignOutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>Controller.HomeController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpController</servlet-name>
-        <url-pattern>/SignUpController</url-pattern>
+        <url-pattern>/SignUp</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignInController</servlet-name>
-        <url-pattern>/SignInController</url-pattern>
+        <url-pattern>/SignIn</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ForgotPassController</servlet-name>
-        <url-pattern>/ForgotPassController</url-pattern>
+        <url-pattern>/ForgotPass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignOutController</servlet-name>
+        <url-pattern>/SignOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/Home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

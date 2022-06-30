@@ -5,6 +5,7 @@
 
 package Controller;
 
+import Model.User;
 import Model.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -35,7 +37,12 @@ public class SignInController extends HttpServlet {
             String email = request.getParameter("email");
             String pass = request.getParameter("pass");
             if (u.login(email, pass)){
-                mess = "Login successful";
+                User user = u.checkAccount(email);
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
+                request.setAttribute("user", user);
+                request.getRequestDispatcher("home.jsp").forward(request, response);
+                return;
             }else{
                 mess = "Password wrong";
             }
