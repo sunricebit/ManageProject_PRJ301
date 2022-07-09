@@ -34,10 +34,10 @@ public class SignInController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String mess;
             UserDAO u = new UserDAO();
-            String email = request.getParameter("email");
+            String username = request.getParameter("username");
             String pass = request.getParameter("pass");
-            if (u.login(email, pass)){
-                User user = u.checkAccount(email);
+            if (u.login(username, pass)){
+                User user = u.checkAccount(username);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 request.setAttribute("user", user);

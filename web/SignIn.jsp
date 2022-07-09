@@ -10,7 +10,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>DASHMIN - Bootstrap Admin Template</title>
+        <title>Sign In</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -62,15 +62,15 @@
                                 </div>
                                 <form action="SignIn" method="post">
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
-                                    <label for="floatingInput">Email address</label>
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+                                    <label for="floatingInput">Username</label>
                                 </div>
                                 <div class="form-floating mb-4">
                                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
                                     <label for="floatingPassword">Password</label>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <a href="ForgotPass.jsp">Forgot Password</a>
+                                    <a href="ForgotPassEmail.jsp">Forgot Password</a>
                                 </div>
                                     <p style='text-align: center'>${mess}</p>
                                 <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>

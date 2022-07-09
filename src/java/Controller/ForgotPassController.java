@@ -29,16 +29,17 @@ public class ForgotPassController extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ForgotPassController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ForgotPassController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String correctCode = request.getParameter("correctCode");
+            String code = request.getParameter("code");
+            String email = request.getParameter("email");
+            if (code.equals(correctCode)){
+                request.setAttribute("email", email);
+                request.getRequestDispatcher("ResetPass.jsp").forward(request, response);
+            }else{
+                String mess = "validation code wrong";
+                request.setAttribute("mess", mess);
+                request.getRequestDispatcher("ForgotPass.jsp");
+            }
         }
     } 
 

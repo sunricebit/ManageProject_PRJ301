@@ -23,6 +23,14 @@
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controller.HomeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MailController</servlet-name>
+        <servlet-class>Controller.MailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPassController</servlet-name>
+        <servlet-class>Controller.ResetPassController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpController</servlet-name>
         <url-pattern>/SignUp</url-pattern>
@@ -42,6 +50,14 @@
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MailController</servlet-name>
+        <url-pattern>/Mail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPassController</servlet-name>
+        <url-pattern>/ResetPass</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

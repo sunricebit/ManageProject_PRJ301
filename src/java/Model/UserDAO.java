@@ -34,14 +34,14 @@ public class UserDAO {
         }
     }
 
-    public boolean login(String email, String pass){
+    public boolean login(String username, String pass) {
         try {
-            String sql = "select * from tblUser where email = ?";
+            String sql = "select * from employee where username = ?";
             stmt = cnt.prepareStatement(sql);
-            stmt.setString(1, email);
+            stmt.setString(1, username);
             rs = stmt.executeQuery();
-            while(rs.next()){
-                boolean checkPass = BCrypt.checkpw(pass, rs.getString(3));
+            while (rs.next()) {
+                boolean checkPass = BCrypt.checkpw(pass, rs.getString(4));
                 return checkPass;
             }
         } catch (Exception e) {
@@ -49,6 +49,7 @@ public class UserDAO {
         }
         return false;
     }
+
     /*public String login(String email, String pass) {
         try {
             String sql = "select * from department where email = ?";
@@ -67,20 +68,21 @@ public class UserDAO {
         return "invalid";
     }*/
 
-    public String createAccount(String username, String email, String pass, int pm) {
+    public String createAccount(String username, String fullname, String email, String pass, int pm) {
         String mess = "";
         if (username.matches("^[0-9a-zA-Z]+$") == false) {
             mess = "Username using only letters and numbers";
             return mess;
         }
         try {
-            String sql = "insert into tblUser values (?, ?, ?, ?)";
+            String sql = "insert into employee values (?,?,?,?,null,?,null)";
             stmt = cnt.prepareStatement(sql);
             stmt.setString(1, username);
-            stmt.setString(2, email);
+            stmt.setString(2, fullname);
+            stmt.setString(3, email);
             String hash = BCrypt.hashpw(pass, BCrypt.gensalt(11));
-            stmt.setString(3, hash);
-            stmt.setInt(4, pm);
+            stmt.setString(4, hash);
+            stmt.setInt(5, pm);
             stmt.execute();
             mess = "Create new account successful";
             return mess;
@@ -89,19 +91,60 @@ public class UserDAO {
         }
         return mess = "Create account failed!";
     }
-    public User checkAccount(String email){
+
+    public User checkAccount(String username) {
         try {
-            String sql = "select * from tblUser where email = ?";
+            String sql = "select * from employee where username = ?";
             stmt = cnt.prepareStatement(sql);
-            stmt.setString(1, email);
+            stmt.setString(1, username);
             rs = stmt.executeQuery();
-            while(rs.next()){
-                User u = new User(rs.getString(1),rs.getString(2));
+            while (rs.next()) {
+                String fullname = rs.getString(2);
+                String email = rs.getString(3);
+                String proID = rs.getString(5);
+                String role = "Employee";
+                if (rs.getBoolean(6)){
+                    role = "PM";
+                }
+                String avatar = rs.getString(7);
+                User u = new User();
+                u.setAvatar(avatar);
+                u.setEmail(email);
+                u.setFullname(fullname);
+                u.setRole(role);
+                u.setUsername(username);
                 return u;
             }
         } catch (Exception e) {
             System.out.println("Log in failed. Error: " + e.getMessage());
         }
         return null;
+    }
+
+    public void changePass(String username, String pass) {
+        try {
+            String sql = "update * from tblUser where username = ?";
+            stmt = cnt.prepareStatement(sql);
+            stmt.setString(1, username);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                String fullname = rs.getString(2);
+                String email = rs.getString(3);
+                String proID = rs.getString(5);
+                String role = "Employee";
+                if (rs.getBoolean(6)){
+                    role = "PM";
+                }
+                String avatar = rs.getString(7);
+                User u = new User();
+                u.setAvatar(avatar);
+                u.setEmail(email);
+                u.setFullname(fullname);
+                u.setRole(role);
+                u.setUsername(username);
+            }
+        } catch (Exception e) {
+            System.out.println("Log in failed. Error: " + e.getMessage());
+        }
     }
 }

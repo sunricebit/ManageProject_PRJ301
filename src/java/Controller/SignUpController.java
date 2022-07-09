@@ -37,11 +37,14 @@ public class SignUpController extends HttpServlet {
             } else {
                 pm = 0;
             }
+            String firstName = request.getParameter("firstName");
+            String lastName = request.getParameter("lastName");
+            String fullname = firstName + " " + lastName;
             String username = request.getParameter("username");
             String email = request.getParameter("email");
             String pass = request.getParameter("pass");
             UserDAO u = new UserDAO();
-            String mess = u.createAccount(username, email, pass, pm);
+            String mess = u.createAccount(username, fullname, email, pass, pm);
             request.setAttribute("mess", mess);
             request.getRequestDispatcher("SignUp.jsp").forward(request, response);
         }
