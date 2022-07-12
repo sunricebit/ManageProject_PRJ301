@@ -31,6 +31,10 @@
         <servlet-name>ResetPassController</servlet-name>
         <servlet-class>Controller.ResetPassController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NavigationController</servlet-name>
+        <servlet-class>Controller.NavigationController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpController</servlet-name>
         <url-pattern>/SignUp</url-pattern>
@@ -58,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>ResetPassController</servlet-name>
         <url-pattern>/ResetPass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NavigationController</servlet-name>
+        <url-pattern>/Navigation</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

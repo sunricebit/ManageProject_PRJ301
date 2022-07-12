@@ -75,7 +75,7 @@ public class UserDAO {
             return mess;
         }
         try {
-            String sql = "insert into employee values (?,?,?,?,null,?,null)";
+            String sql = "insert into employee values (?,?,?,?,null,?,?)";
             stmt = cnt.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.setString(2, fullname);
@@ -83,6 +83,7 @@ public class UserDAO {
             String hash = BCrypt.hashpw(pass, BCrypt.gensalt(11));
             stmt.setString(4, hash);
             stmt.setInt(5, pm);
+            stmt.setString(6, "image/default-avatar.png");
             stmt.execute();
             mess = "Create new account successful";
             return mess;
