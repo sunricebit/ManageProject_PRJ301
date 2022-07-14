@@ -4,19 +4,22 @@
  */
 package Controller;
 
-import Model.ProjectDAO;
+import Model.Task;
+import Model.TaskDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  *
- * @author Msi
+ * @author MyPC
  */
-public class AddProject extends HttpServlet {
+public class TaskController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,21 +32,12 @@ public class AddProject extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String proID = request.getParameter("proid");
-        String proName = request.getParameter("proname");
-        String start = request.getParameter("start");
-        String end = request.getParameter("end");
-        String customer = request.getParameter("customer");
-        String mess;
-
-        ProjectDAO p = new ProjectDAO();
-        if (p.checkExistNumber(proID)) {
-            mess = "ID already exist in database";
-            request.setAttribute("mess", mess);
-            request.getRequestDispatcher("AddProject.jsp").forward(request, response);
-        } else {
-            p.addProject(proID, proName, start, end, customer);
-            request.getRequestDispatcher("AddProject.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            TaskDAO d = new TaskDAO();
+            ArrayList<Task> listt = d.getAll();
+            request.setAttribute("listt", listt);
+            request.getRequestDispatcher("calendar.jsp").forward(request, response);
         }
     }
 
@@ -60,6 +54,7 @@ public class AddProject extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**
@@ -73,7 +68,21 @@ public class AddProject extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+//             int size = listAll.size();
+//            int numPage = (size % 4 == 0) ? size / 4 : size / 4 + 1;
+//            
+//            int page = 1;
+//            String xpage = request.getParameter("xpage");
+//            if (xpage != null) {
+//                page = Integer.parseInt(xpage);
+//            }
+//            int start = (page - 1) * 4;
+//            int end = Math.min(page * 4 - 1, size - 1);
+//            ArrayList<ProjectProgress> list = d.getListByPage(listAll, start, end);
+//            request.setAttribute("list", listAll);
+////              request.setAttribute("numpage", numPage);
+//            request.getRequestDispatcher("DailyTask.jsp").forward(request, response);
     }
 
     /**

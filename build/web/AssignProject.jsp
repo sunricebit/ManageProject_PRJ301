@@ -1,16 +1,17 @@
 <%-- 
-    Document   : AddProject
-    Created on : Jul 7, 2022, 3:11:54 PM
+    Document   : AssignController
+    Created on : Jul 11, 2022, 3:29:41 PM
     Author     : Msi
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <!DOCTYPE html>
     <html lang="en">
 
     <head>
         <meta charset="utf-8">
-        <title>Add project</title>
+        <title>DASHMIN - Bootstrap Admin Template</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -54,29 +55,27 @@
                     <div class="row g-4">
                         <div class="col-sm-12 col-xl-12">
                             <div class="bg-light rounded h-100 p-4">
-                                <h4 class="mb-4" style="text-transform: uppercase;">Add New Project</h4>
+                                <h4 class="mb-4" style="text-transform: uppercase;">Assign Work To Employees</h4>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" name="proid" placeholder="ID">
-                                    <label for="floatingInput">ID</label>
+                                    <select class="form-select" id="floatingSelect"
+                                        aria-label="Floating label select example" name="project">
+                                        <c:forEach items="${listProject}" var="project">
+                                            <option value="${project.getProId()}">${project.getProName()}</option>
+                                        </c:forEach>
+                                        
+                                    </select>
+                                    <label for="floatingSelect">Project</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingPassword" name="proname" placeholder="name">
-                                    <label for="floatingPassword">Project Name</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="floatingPassword" name="start" placeholder="start">
-                                    <label for="floatingPassword">Start Date</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="floatingPassword" name="end" placeholder="deadline">
-                                    <label for="floatingPassword">End Date</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingPassword" name="customer" placeholder="customer">
-                                    <label for="floatingPassword">Customer</label>
+                                    <select class="form-select" id="floatingSelect"
+                                            aria-label="Floating label select example" name="employee">
+                                        <c:forEach items="${listEmployee}" var="employee">
+                                            <option value="${employee.getUsername()}">${employee.getFullname()}</option>
+                                        </c:forEach>
+                                    </select>
+                                    <label for="floatingSelect">Employee</label>
                                 </div>
                                 <br><button type="submit" class="btn btn-primary">Submit</button>
-                                <p style="color: red">${mess}</p>
                             </div>
                         </div>
                     </div>
@@ -121,4 +120,4 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
     </body>
-    </html>
+</html>

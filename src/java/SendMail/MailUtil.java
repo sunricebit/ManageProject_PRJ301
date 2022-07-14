@@ -28,7 +28,7 @@ public class MailUtil {
         pro.put("mail.smtp.host", "smtp.gmail.com");
         pro.put("mail.smtp.port", "587");
 
-        String sender = "vuducduynb2002@gmail.com";
+        String sender = "duyvdhe163866@fpt.edu.vn";
         String pass = "duy30112002";
         Session session = Session.getInstance(pro, new Authenticator() {
             @Override
@@ -39,8 +39,10 @@ public class MailUtil {
         Message message = prepareMessage(session, sender, receiver, code);
         if (message != null) {
             Transport.send(message);
+            System.out.println("Send mail successful!");
             return true;
         } else {
+            System.out.println("Send mail failed!");
             return false;
         }
     }

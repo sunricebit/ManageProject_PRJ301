@@ -64,11 +64,11 @@
                                     <label for="floatingPassword">Project Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingPassword" name="start" placeholder="start">
+                                    <input type="date" class="form-control" id="floatingPassword" name="start" placeholder="start">
                                     <label for="floatingPassword">Start Date</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingPassword" name="end" placeholder="deadline">
+                                    <input type="date" class="form-control" id="floatingPassword" name="end" placeholder="deadline">
                                     <label for="floatingPassword">End Date</label>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -76,6 +76,7 @@
                                     <label for="floatingPassword">Customer</label>
                                 </div>
                                 <br><button type="submit" class="btn btn-primary">Submit</button>
+                                <p style="color: red">${mess}</p>
                             </div>
                         </div>
                     </div>

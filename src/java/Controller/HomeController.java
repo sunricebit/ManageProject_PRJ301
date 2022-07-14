@@ -5,17 +5,19 @@
 
 package Controller;
 
+import Model.Task;
+import Model.TaskDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  *
- * @author ADMIN
+ * @author MyPC
  */
 public class HomeController extends HttpServlet {
    
@@ -28,18 +30,7 @@ public class HomeController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
-            if(session.getAttribute("user")==null){
-                response.sendRedirect("main.html");
-                return;
-            }
-            if (session.getAttribute("user")!=null){
-                response.sendRedirect("home.jsp");
-                return;
-            }
-        }
+        request.getRequestDispatcher("Navigation?goal=home.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

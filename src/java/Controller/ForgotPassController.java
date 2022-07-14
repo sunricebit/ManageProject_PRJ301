@@ -35,10 +35,13 @@ public class ForgotPassController extends HttpServlet {
             if (code.equals(correctCode)){
                 request.setAttribute("email", email);
                 request.getRequestDispatcher("ResetPass.jsp").forward(request, response);
-            }else{
+                return;
+            }
+            if (code.equals(correctCode)!=true){
                 String mess = "validation code wrong";
                 request.setAttribute("mess", mess);
-                request.getRequestDispatcher("ForgotPass.jsp");
+                request.getRequestDispatcher("ForgotPass.jsp").forward(request, response);
+                return;
             }
         }
     } 

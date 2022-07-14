@@ -60,14 +60,16 @@
                                 </a>
                             </div>
                             <br>
-                            <p>We just sent your verification code via email to ${email.substring(0, 3)}*******${email.substring(0, 3)}</p><!-- display email -->
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Verification Code " name="code">
-                                <label for="floatingInput">Verification Code</label>
-                            </div>
-                            <p style="display: none" name="correctCode">${code}</p>
-                            <p style="display: none" name="email">${email}</p>
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Confirm</button>
+                            <p>We just sent your verification code via email to ${email.substring(0, 3)}*******${email.substring(email.length()-10, email.length())}</p><!-- display email -->
+                            <form action="ForgotPass" method="post">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="Verification Code " name="code">
+                                    <label for="floatingInput">Verification Code</label>
+                                </div>
+                                <input style="display: none" name="correctCode" value="${code}">
+                                <input style="display: none" name="email" value="${email}">
+                                <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Confirm</button>
+                            </form>
                             <p class="text-center mb-0">Don't have an Account? <a href="SignUp.jsp">Sign Up</a></p>
                         </div>
                     </div>

@@ -108,15 +108,17 @@
 
             <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row vh-100 bg-light rounded align-items-center justify-content-center mx-0">
-                    <div class="col-md-6 text-center">
+                <div class="row vh-100 bg-light rounded justify-content-center mx-0">
+                    <div class="col-md-6">
+                        <img src="${user.getAvatar()}" alt="" style="width: 80px; height: 80px;">
+                        <br>
                         <label for="formFile" class="form-label">Change avatar:</label>
                         <input class="form-control" type="file" id="formFile">
-                        <button type="submit" class="btn btn-outline-primary m-2" value="Change" name="changeAva">Change</button>
+                        <input type="submit" class="btn btn-outline-primary m-2" value="Change" name="changeAva">
                         <br><button type="submit" class="btn btn-outline-primary m-2" value="Change" name="changePass"><a style="text-decoration: none" href="Navigation?goal=ResetPass.jsp">Change Password</a></button>
                         <br>Change Name:
                         <br><input type="text" class="form-control" value="${user.getFullname()}" name="fullname">
-                        <button type="submit" class="btn btn-outline-primary m-2" value="Change" name="changeName">Change</button>
+                        <input type="submit" class="btn btn-outline-primary m-2" value="Change" name="changeName">
                     </div>
                 </div>
             </div>

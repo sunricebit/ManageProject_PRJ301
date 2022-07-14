@@ -37,11 +37,16 @@ public class ResetPassController extends HttpServlet {
             if (confirmPass.equals(pass)){
                 UserDAO u = new UserDAO();
                 u.changePass(email, pass);
+                String mess = "Change password successful";
+                request.setAttribute("mess", mess);
+                request.getRequestDispatcher("SignIn.jsp").forward(request, response);
+                return;
             }
             else{
-                String mess = "please enter confirm password correct";
+                String mess = "Please enter confirm password correct";
                 request.setAttribute("mess", mess);
-                request.getRequestDispatcher("ResetPass.jsp");
+                request.getRequestDispatcher("ResetPass.jsp").forward(request, response);
+                return;
             }
         }
     } 

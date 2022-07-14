@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
+
 package Controller;
 
-import Model.ProjectDAO;
+import Model.Task;
+import Model.TaskDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,43 +16,25 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Msi
+ * @author MyPC
  */
-public class AddProject extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
+public class AddTask extends HttpServlet {
+   
+    /** 
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String proID = request.getParameter("proid");
-        String proName = request.getParameter("proname");
-        String start = request.getParameter("start");
-        String end = request.getParameter("end");
-        String customer = request.getParameter("customer");
-        String mess;
-
-        ProjectDAO p = new ProjectDAO();
-        if (p.checkExistNumber(proID)) {
-            mess = "ID already exist in database";
-            request.setAttribute("mess", mess);
-            request.getRequestDispatcher("AddProject.jsp").forward(request, response);
-        } else {
-            p.addProject(proID, proName, start, end, customer);
-            request.getRequestDispatcher("AddProject.jsp").forward(request, response);
-        }
-    }
+    throws ServletException, IOException {
+        
+    } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
+    /** 
      * Handles the HTTP <code>GET</code> method.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -58,13 +42,21 @@ public class AddProject extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+    throws ServletException, IOException {
+        String taskID = request.getParameter("sid");
+        TaskDAO p = new TaskDAO();
+        if (request.getParameter("mod").equals("update")) {
+           
+        }
+        if (request.getParameter("mod").equals("delete")) {
+            //delete
+            p.deleteByID(taskID);
+            response.sendRedirect("Task");
+        }
+    } 
 
-    /**
+    /** 
      * Handles the HTTP <code>POST</code> method.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -72,13 +64,18 @@ public class AddProject extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    throws ServletException, IOException {
+        String taskID = request.getParameter("taskID");
+        String detail = request.getParameter("detail");
+        String username = request.getParameter("username");
+        String proID = request.getParameter("proID");
+        TaskDAO p = new TaskDAO();
+        //p.AddTask(taskID, detail, username, proID);       
+        response.sendRedirect("Task");
     }
 
-    /**
+    /** 
      * Returns a short description of the servlet.
-     *
      * @return a String containing servlet description
      */
     @Override

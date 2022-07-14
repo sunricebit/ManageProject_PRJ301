@@ -3,8 +3,10 @@
     Created on : Jun 8, 2022, 10:22:54 AM
     Author     : ADMIN
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import ="Model.Task"%>
+<%@page import = "java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,17 +106,58 @@
                 </div>
             </nav>
             <!-- Navbar End -->
+                
 
-
-            <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row vh-100 bg-light rounded align-items-center justify-content-center mx-0">
-                    <div class="col-md-6 text-center">
-                        <h3>This is blank page</h3>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-3">
+                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Task done</p>
+                               <c:forEach items="${li}" var="item">
+                                    <h6 class="mb-0">${item.count}</h6>
+                                </c:forEach>
+                                
+                                
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-3">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Task Process</p>
+                                <c:forEach items="${lis}" var="item">
+                                    <h6 class="mb-0">${item.count}</h6>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-3">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2" >All task</p>
+                                <c:forEach items="${list}" var="item">
+                                    <h6 class="mb-0">${item.count}</h6>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-            <!-- Blank End -->
+            <div class="container-fluid pt-5 px-5">
+                <div class="row g-10">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Single Line Chart</h6>
+                            <canvas id="line-chart"></canvas>
+                        </div>
+                    </div>
+                </div><!-- comment -->
+                </div>
 
 
             <!-- Footer Start -->

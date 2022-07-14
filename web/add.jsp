@@ -10,7 +10,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Add project</title>
+        <title>Add Task</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -50,37 +50,34 @@
 
             <!-- Content Start -->
                 <!-- Form Start -->
+                <form action="Add" method="post">
                 <div class="container-fluid pt-4 px-4">
                     <div class="row g-4">
                         <div class="col-sm-12 col-xl-12">
                             <div class="bg-light rounded h-100 p-4">
-                                <h4 class="mb-4" style="text-transform: uppercase;">Add New Project</h4>
+                                <h4 class="mb-4" style="text-transform: uppercase;">Add Task</h4>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" name="proid" placeholder="ID">
+                                    <input type="text" class="form-control" id="floatingInput" name="taskID" placeholder="ID">
                                     <label for="floatingInput">ID</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingPassword" name="proname" placeholder="name">
-                                    <label for="floatingPassword">Project Name</label>
+                                    <input type="text" class="form-control" id="floatingPassword" name="detail" placeholder="name">
+                                    <label for="floatingPassword">Detail</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="floatingPassword" name="start" placeholder="start">
-                                    <label for="floatingPassword">Start Date</label>
+                                    <input type="text" class="form-control" id="floatingPassword" name="username" placeholder="User">
+                                    <label for="floatingPassword">User Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="floatingPassword" name="end" placeholder="deadline">
-                                    <label for="floatingPassword">End Date</label>
+                                    <input type="text" class="form-control" id="floatingPassword" name="proID" placeholder="ProjectID">
+                                    <label for="floatingPassword">Project ID</label>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingPassword" name="customer" placeholder="customer">
-                                    <label for="floatingPassword">Customer</label>
-                                </div>
-                                <br><button type="submit" class="btn btn-primary">Submit</button>
-                                <p style="color: red">${mess}</p>
+                                
+                              <br><button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </div>
                     </div>
-
+                   </form>
                 <!-- Form End -->
 
 
